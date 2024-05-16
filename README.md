@@ -1,4 +1,4 @@
-<h1>MongoDB Node.js Raect application </h1>
+<h1>MongoDB Node.js React application </h1>
 <h3>The server side of the application is implemented using Express</h3>
 MongoDB database that stores information about cars
 <ol>The application allows you to:
