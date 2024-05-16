@@ -16,4 +16,4 @@ https://github.com/AlinaPristinskaya/mongodb-front
 Front repository:
 https://github.com/AlinaPristinskaya/mongodb-back
 
-GH-pages: alinapristinskaya.github.io/mongodb-front/
+GH-pages: [alinapristinskaya.github.io/mongodb-front/](https://alinapristinskaya.github.io/mongodb-front/)
