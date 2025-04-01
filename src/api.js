@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-https://mongodb-back-6rbl.onrender.com
+
 
 
 const instance = axios.create({
