@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import api from "../api";
+import api from "../../api";
+import "./Cars.css"; // Подключаем стили
 
-
-//For clarity, this component also displays the entire list of machines,
-// but with the ability to update many properties
-// at once in several or one or all machines
 const Cars = ({ refresh }) => {
   const [cars, setCars] = useState([]);
   const [selectedCars, setSelectedCars] = useState({});
@@ -25,6 +22,7 @@ const Cars = ({ refresh }) => {
       [carId]: !prev[carId],
     }));
   };
+
   const handleInputChange = (carId, field, value) => {
     setFormValues((prev) => ({
       ...prev,
@@ -34,8 +32,7 @@ const Cars = ({ refresh }) => {
       },
     }));
   };
-  //the function creates an object of the required format
-  // to send a request to the database
+
   const handleBulkUpdate = async () => {
     const updates = Object.keys(formValues).map((key) => ({
       id: key,
@@ -44,24 +41,28 @@ const Cars = ({ refresh }) => {
     await api.put("/cars/bulk-update", updates);
     console.log("Cars updated successfully");
     setSelectedCars({});
-    refresh(); // refetch cars after updating
+    refresh();
   };
 
   return (
-    <div>
-      <h2>Update information about more than one car.</h2>
+    <div className="cars-container">
+      <h2>Update multiple cars</h2>
       <button onClick={handleBulkUpdate}>Update Selected</button>
-      <ul>
+      <ul className="cars-list">
         {cars.map((car) => (
           <li key={car._id}>
-            <input
-              type="checkbox"
-              checked={!!selectedCars[car._id]}
-              onChange={() => handleSelectCar(car._id)}
-            />
-            {car.make} {car.model} - {car.owner}
+            <div className="car-header">
+              <input
+                type="checkbox"
+                checked={!!selectedCars[car._id]}
+                onChange={() => handleSelectCar(car._id)}
+              />
+              <span>
+                {car.make} {car.model} - {car.owner}
+              </span>
+            </div>
             {selectedCars[car._id] && (
-              <div>
+              <div className="car-fields">
                 <input
                   type="text"
                   placeholder="Make"
@@ -111,7 +112,7 @@ const Cars = ({ refresh }) => {
                 />
                 <input
                   type="text"
-                  placeholder="address"
+                  placeholder="Address"
                   value={formValues[car._id]?.address || car.address}
                   onChange={(e) =>
                     handleInputChange(car._id, "address", e.target.value)

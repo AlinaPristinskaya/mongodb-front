@@ -1,38 +1,48 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Заголовок будет в верхней части */
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-sections {
+  display: flex;
+  justify-content: space-between; /* Это будет располагать компоненты на равном расстоянии */
+  flex-wrap: wrap; /* Если не хватает места, компоненты будут перенаправляться на новую строку */
+  gap: 20px; /* Отступы между компонентами */
+  width: 100%; /* Ширина, которая занимает контейнер */
+}
+
+.app-sections > div {
+  flex: 1 1 250px; /* Компоненты будут гибкими, но минимальная ширина 250px */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 250px; /* Минимальная ширина каждого компонента */
+  box-sizing: border-box; /* Чтобы padding не увеличивал размер компонента */
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+

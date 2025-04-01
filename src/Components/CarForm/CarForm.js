@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import api from "../api";
+import api from "../../api";
+import "./CarForm.css"; // Подключаем стили
 
-//component form for updating or adding one machine
-
-const CarForm = ({  carToEdit, setCarToEdit, refresh }) => {
+const CarForm = ({ carToEdit, setCarToEdit, refresh }) => {
   const [formData, setFormData] = useState({
     make: "",
     model: "",
@@ -12,6 +11,7 @@ const CarForm = ({  carToEdit, setCarToEdit, refresh }) => {
     color: "",
     address: "",
   });
+
   useEffect(() => {
     if (carToEdit) {
       setFormData({
@@ -24,6 +24,7 @@ const CarForm = ({  carToEdit, setCarToEdit, refresh }) => {
       });
     }
   }, [carToEdit]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -39,11 +40,15 @@ const CarForm = ({  carToEdit, setCarToEdit, refresh }) => {
         await api.put(`/cars/${carToEdit._id}`, formData);
       } else {
         await api.post("/cars/add", formData);
-        
       }
 
-      setFormData({make: "", model: "", color: "", registration_number: "",
-        owner: "", owners: [], address: "",
+      setFormData({
+        make: "",
+        model: "",
+        color: "",
+        registration_number: "",
+        owner: "",
+        address: "",
       });
       refresh();
       setCarToEdit(null);
@@ -53,8 +58,8 @@ const CarForm = ({  carToEdit, setCarToEdit, refresh }) => {
   };
 
   return (
-    <div>
-      <h2>Add a car to the cars collection</h2>
+    <div className="car-form">
+      <h2>{carToEdit ? "Edit Car" : "Add a Car"}</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -98,11 +103,7 @@ const CarForm = ({  carToEdit, setCarToEdit, refresh }) => {
           onChange={handleChange}
           placeholder="Address"
         />
-        <button
-          type="submit"
-        >
-          {carToEdit ? "Update Car" : "Add Car"}
-        </button>
+        <button type="submit">{carToEdit ? "Update Car" : "Add Car"}</button>
       </form>
     </div>
   );

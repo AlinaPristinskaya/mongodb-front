@@ -1,10 +1,6 @@
-
 import React, { useEffect, useState } from "react";
-import api from "../api";
-
-//the component CarList displays all cars in the database
-//The button Edit passes the props to one cars to update it
-//The button Delete deletes the car by id
+import api from "../../api";
+import "./CarList.css"; // Подключаем стили
 
 const CarList = ({ setCarToEdit, refresh }) => {
   const [cars, setCars] = useState([]);
@@ -25,21 +21,23 @@ const CarList = ({ setCarToEdit, refresh }) => {
   const deleteCar = async (id) => {
     try {
       await api.delete(`/cars/${id}`);
-      refresh(); // update list after deleting
+      refresh();
     } catch (error) {
       console.error("Failed to delete car", error);
     }
   };
 
   return (
-    <div>
+    <div className="car-list">
       <h2>Car List</h2>
       <ul>
         {cars.map((car) => (
           <li key={car._id}>
-            {car.make} {car.model} {car.color}- {car.owner}
-            <button onClick={() => setCarToEdit(car)}>Edit</button>
-            <button onClick={() => deleteCar(car._id)}>Delete</button>
+            <span>{car.make} {car.model} ({car.color}) - {car.owner}</span>
+            <div>
+              <button onClick={() => setCarToEdit(car)}>Edit</button>
+              <button onClick={() => deleteCar(car._id)}>Delete</button>
+            </div>
           </li>
         ))}
       </ul>

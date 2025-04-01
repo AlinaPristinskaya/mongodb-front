@@ -1,8 +1,7 @@
-
 import React, { useEffect, useState } from "react";
-import api from "../api";
+import api from "../../api";
+import "./CarsOld.css"; // Подключаем стили
 
-//the component displays cars older than 5 years
 const CarsOld = ({ refresh }) => {
   const [cars, setCars] = useState([]);
 
@@ -20,12 +19,12 @@ const CarsOld = ({ refresh }) => {
   };
 
   return (
-    <div>
-      <h2>Car Old</h2>
-      <ul>
+    <div className="cars-old-container">
+      <h2>Cars Older Than 5 Years</h2>
+      <ul className="cars-old-list">
         {cars.map((car) => (
           <li key={car._id}>
-            {car.make} {car.model} {car.color}- {car.owner}
+            {car.make} {car.model} ({car.color}) - {car.owner}
           </li>
         ))}
       </ul>
@@ -34,3 +33,4 @@ const CarsOld = ({ refresh }) => {
 };
 
 export default CarsOld;
+
