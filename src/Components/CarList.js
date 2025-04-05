@@ -26,6 +26,9 @@ const CarList = ({ setCarToEdit, refresh }) => {
     }
   };
 
+  const buttonStyle =
+    "px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300";
+
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-4 text-center">Car List</h2>
@@ -41,13 +44,13 @@ const CarList = ({ setCarToEdit, refresh }) => {
             <div className="flex space-x-4">
               <button
                 onClick={() => setCarToEdit(car)}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300"
+                className={buttonStyle}
               >
                 Edit
               </button>
               <button
                 onClick={() => deleteCar(car._id)}
-                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300"
+                className={buttonStyle}
               >
                 Delete
               </button>

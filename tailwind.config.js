@@ -1,9 +1,9 @@
 module.exports = {
-    darkMode: 'class', // Включаем темную тему через классы
-    theme: {
-      extend: {},
-    },
-    plugins: [],
-  }
-  
-  
+  content: [
+    "./src/**/*.{html,js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
