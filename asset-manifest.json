@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mongodb-front/static/css/main.e55b3d80.css",
-    "main.js": "/mongodb-front/static/js/main.5c4d426b.js",
+    "main.css": "/mongodb-front/static/css/main.05c88563.css",
+    "main.js": "/mongodb-front/static/js/main.4504eeb3.js",
     "index.html": "/mongodb-front/index.html",
-    "main.e55b3d80.css.map": "/mongodb-front/static/css/main.e55b3d80.css.map",
-    "main.5c4d426b.js.map": "/mongodb-front/static/js/main.5c4d426b.js.map"
+    "main.05c88563.css.map": "/mongodb-front/static/css/main.05c88563.css.map",
+    "main.4504eeb3.js.map": "/mongodb-front/static/js/main.4504eeb3.js.map"
   },
   "entrypoints": [
-    "static/css/main.e55b3d80.css",
-    "static/js/main.5c4d426b.js"
+    "static/css/main.05c88563.css",
+    "static/js/main.4504eeb3.js"
   ]
 }
