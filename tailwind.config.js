@@ -1,10 +1,9 @@
 module.exports = {
-    content: [
-      "./src/**/*.{js,jsx,ts,tsx}", // Убедись, что пути правильные
-    ],
+    darkMode: 'class', // Включаем темную тему через классы
     theme: {
       extend: {},
     },
     plugins: [],
-  };
+  }
+  
   

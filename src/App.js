@@ -1,8 +1,8 @@
 import "./App.css";
-import CarForm from "./Components/CarForm/CarForm";
-import CarList from "./Components/CarList/CarList";
-import CarsOld from "./Components/CarsOld/CarsOld";
-import Cars from "./Components/Cars/Cars";
+import CarForm from "./Components/CarForm";
+import CarList from "./Components/CarList";
+import CarsOld from "./Components/CarsOld";
+import Cars from "./Components/Cars";
 import React, { useState } from "react";
 
 function App() {
@@ -16,23 +16,29 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Car Management System</h1>
+      <h1 className="text-center text-3xl font-bold py-6">
+        Car Management System
+      </h1>
       <div className="app-sections">
-        <div>
-          <CarForm
-            carToEdit={carToEdit}
-            setCarToEdit={setCarToEdit}
-            refresh={triggerRefresh}
-          />
+        <div className="top-section">
+          <div className="form-section">
+            <CarForm
+              carToEdit={carToEdit}
+              setCarToEdit={setCarToEdit}
+              refresh={triggerRefresh}
+            />
+          </div>
+          <div className="car-list-section">
+            <CarList setCarToEdit={setCarToEdit} refresh={triggerRefresh} />
+          </div>
         </div>
-        <div>
-          <CarList setCarToEdit={setCarToEdit} refresh={triggerRefresh} />
-        </div>
-        <div>
-          <CarsOld refresh={triggerRefresh} />
-        </div>
-        <div>
-          <Cars refresh={triggerRefresh} />
+        <div className="bottom-sections">
+          <div className="cars-old-section">
+            <CarsOld refresh={triggerRefresh} />
+          </div>
+          <div className="cars-section">
+            <Cars refresh={triggerRefresh} />
+          </div>
         </div>
       </div>
     </div>
@@ -40,5 +46,3 @@ function App() {
 }
 
 export default App;
-
-
